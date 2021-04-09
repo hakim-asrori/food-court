@@ -1,0 +1,25 @@
+Options -Indexes
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+ErrorDocument 404 /projek1/error/404.php
+ErrorDocument 403 /projek1/error/403.php
+
+# CSS
+RewriteRule ^css.php/(.*)$ css/$1
+
+# plugin
+RewriteRule ^plugins.php/(.*)$ vendor/$1
+
+# js
+RewriteRule ^javascript.php/(.*)$ js/$1
+
+# img
+RewriteRule ^images.php/(.*)$ images/$1
+
+# User
+RewriteRule ^login$ page/login.php
+RewriteRule ^registrasi$ page/registrasi.php
+RewriteRule ^checkout$ page/checkout.php
+RewriteRule ^keranjang$ page/keranjang.php

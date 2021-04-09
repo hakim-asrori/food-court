@@ -3,7 +3,7 @@
 <?php include "../layout/nav.php"; ?>
 <?php
 if (isset($_POST['login'])) {
-	$account = $_POST['account'];
+	$account = anti_inject($_POST['account']);
 	$password = $_POST['password'];
 
 	if (empty($account)) {

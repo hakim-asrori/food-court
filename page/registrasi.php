@@ -4,8 +4,8 @@ include "../layout/head.php";
 include "../layout/nav.php"; 
 
 if (isset($_POST['register'])) {
-  $username = $_POST['username'];
-  $email = $_POST['email'];
+  $username = anti_inject($_POST['username']);
+  $email = anti_inject($_POST['email']);
   $password1 = $_POST['password1'];
   $password2 = $_POST['password2'];
   if (empty($username)) {

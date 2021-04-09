@@ -1,6 +1,6 @@
 <?php
 session_start();
-$koneksi = new mysqli("localhost", "root", "", "db_projek1_new");
+$koneksi = new mysqli("localhost", "wedus", "Mr_w3dvs", "db_projek1");
 
 // Memebuat token CSRF
 function createToken()
@@ -55,31 +55,31 @@ function uri_segment($uri = "")
 // URL base
 function base_url($folder = '')
 {
-	return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'] . "/" . uri_segment(1) . "/" . $folder;
+	return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http") . "://" . $_SERVER['HTTP_HOST']  . "/" . $folder;
 }
 
 // URL CSS
 function css_url($folder = '')
 {
-	return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'] . "/" . uri_segment(1) . "/css.php/" . $folder;
+	return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http") . "://" . $_SERVER['HTTP_HOST']  . "/css.php/" . $folder;
 }
 
 // URL CSS
 function plugin_url($folder = '')
 {
-	return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'] . "/" . uri_segment(1) . "/plugins.php/" . $folder;
+	return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http") . "://" . $_SERVER['HTTP_HOST']  . "/plugins.php/" . $folder;
 }
 
 // URL js
 function js_url($folder = '')
 {
-	return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'] . "/" . uri_segment(1) . "/javascript.php/" . $folder;
+	return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http") . "://" . $_SERVER['HTTP_HOST']  . "/javascript.php/" . $folder;
 }
 
 // URL images
 function image_url($folder = '')
 {
-	return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'] . "/" . uri_segment(1) . "/images.php/" . $folder;
+	return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http") . "://" . $_SERVER['HTTP_HOST']  . "/images.php/" . $folder;
 }
 
 // Meredirect halaman

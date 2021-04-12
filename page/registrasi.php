@@ -8,6 +8,7 @@ if (isset($_POST['register'])) {
   $email = anti_inject($_POST['email']);
   $password1 = $_POST['password1'];
   $password2 = $_POST['password2'];
+  $role = 2;
   if (empty($username)) {
     $msgUser = "This field username is required!";
   } elseif (empty($email)) {
@@ -25,9 +26,13 @@ if (isset($_POST['register'])) {
         $msgEmail = "This email has already registered!";
       } else {
         $password = password_hash($password1, PASSWORD_ARGON2I);
-        $koneksi->query("INSERT INTO tb_users (username, email, password, id_role) VALUES('$username', '$email', '$password', 2)");
-        echo '<script>alert("Your account has been created")</script>';
-        echo '<script>location="'.base_url("login").'"</script>';
+        $sql = "INSERT INTO tb_users (username, email, password, id_role) VALUES('$username', '$email', '$password', '$role')";
+        if ($koneksi->query($sql) === true) {
+          echo '<script>alert("Your account has been created")</script>';
+          echo '<script>location="'.base_url("login").'"</script>';
+        } else {
+          echo "Error : " . $sql . "<br>" . $koneksi->error;
+        }
       }
 
     }

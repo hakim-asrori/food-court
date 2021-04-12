@@ -1,6 +1,10 @@
 <?php
 session_start();
-$koneksi = new mysqli("localhost", "wedus", "Mr_w3dvs", "db_projek1");
+$koneksi = new mysqli("localhost", "ifcfooud_hakim", "Hakim123!", 
+"ifcfooud_asol");
+
+// $koneksi = new mysqli("localhost", "root", "", "db_projek1");
+
 
 // Memebuat token CSRF
 function createToken()

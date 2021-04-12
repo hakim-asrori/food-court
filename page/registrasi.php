@@ -26,13 +26,9 @@ if (isset($_POST['register'])) {
         $msgEmail = "This email has already registered!";
       } else {
         $password = password_hash($password1, PASSWORD_ARGON2I);
-        $sql = "INSERT INTO tb_users (username, email, password, id_role) VALUES('$username', '$email', '$password', '$role')";
-        if ($koneksi->query($sql) === true) {
-          echo '<script>alert("Your account has been created")</script>';
-          echo '<script>location="'.base_url("login").'"</script>';
-        } else {
-          echo "Error : " . $sql . "<br>" . $koneksi->error;
-        }
+ 	$koneksi->query("INSERT INTO tb_users (username, email, password, id_role) VALUES('$username', '$email', '$password', 2)");
+        echo '<script>alert("Your account has been created")</script>';
+        echo '<script>location="'.base_url("login").'"</script>';
       }
 
     }

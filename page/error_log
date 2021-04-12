@@ -9,3 +9,4 @@ Stack trace:
 [12-Apr-2021 21:15:14 UTC] PHP Notice:  Trying to access array offset on value of type null in /home2/ifcfooud/public_html/page/registrasi.php on line 25
 [12-Apr-2021 21:16:56 UTC] PHP Notice:  Trying to access array offset on value of type null in /home2/ifcfooud/public_html/page/registrasi.php on line 25
 [12-Apr-2021 21:17:32 UTC] PHP Notice:  Trying to access array offset on value of type null in /home2/ifcfooud/public_html/page/registrasi.php on line 25
+[12-Apr-2021 21:29:49 UTC] PHP Notice:  Trying to access array offset on value of type null in /home2/ifcfooud/public_html/page/registrasi.php on line 25

@@ -43,7 +43,7 @@
 			<footer class="sticky-footer bg-white">
 				<div class="container my-auto">
 					<div class="copyright text-center my-auto">
-						<span>Copyright &copy; <a href="http://projek1.hakimasrori.co.vu">projek1.hakimasrori.co.vu</a> 2021</span>
+						<span>Copyright &copy; <a href="https://ifc-fooudcourt.my.id/">ifc-fooudcourt.my.id</a> 2021</span>
 					</div>
 				</div>
 			</footer>

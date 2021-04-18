@@ -25,7 +25,11 @@ if (isset($_POST['register'])) {
         $msgEmail = "This email has already registered!";
       } else {
         $password = password_hash($password1, PASSWORD_ARGON2I);
+<<<<<<< HEAD
         $koneksi->query("INSERT INTO tb_users (username, email, password, id_role) VALUES('$username', '$email', '$password', 2)");
+=======
+ 	$koneksi->query("INSERT INTO tb_users (username, email, password, id_role) VALUES('$username', '$email', '$password', 2)");
+>>>>>>> 3da66e307efb9728a72027ff538cb169c3a8cc30
         echo '<script>alert("Your account has been created")</script>';
         echo '<script>location="'.base_url("login").'"</script>';
       }

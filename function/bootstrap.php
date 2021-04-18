@@ -1,6 +1,9 @@
 <?php
 session_start();
-$koneksi = new mysqli("localhost", "wedus", "Mr_w3dvs", "db_projek1");
+$koneksi = new mysqli("localhost", "root", "", "ifcfooud_hakim");
+
+// $koneksi = new mysqli("localhost", "root", "", "db_projek1");
+
 
 // Memebuat token CSRF
 function createToken()
@@ -55,31 +58,31 @@ function uri_segment($uri = "")
 // URL base
 function base_url($folder = '')
 {
-	return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http") . "://" . $_SERVER['HTTP_HOST']  . "/" . $folder;
+	return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http") . "://" . $_SERVER['HTTP_HOST']  . "/food-court/" . $folder;
 }
 
 // URL CSS
 function css_url($folder = '')
 {
-	return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http") . "://" . $_SERVER['HTTP_HOST']  . "/css.php/" . $folder;
+	return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http") . "://" . $_SERVER['HTTP_HOST']  . "/food-court/css.php/" . $folder;
 }
 
 // URL CSS
 function plugin_url($folder = '')
 {
-	return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http") . "://" . $_SERVER['HTTP_HOST']  . "/plugins.php/" . $folder;
+	return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http") . "://" . $_SERVER['HTTP_HOST']  . "/food-court/plugins.php/" . $folder;
 }
 
 // URL js
 function js_url($folder = '')
 {
-	return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http") . "://" . $_SERVER['HTTP_HOST']  . "/javascript.php/" . $folder;
+	return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http") . "://" . $_SERVER['HTTP_HOST']  . "/food-court/javascript.php/" . $folder;
 }
 
 // URL images
 function image_url($folder = '')
 {
-	return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http") . "://" . $_SERVER['HTTP_HOST']  . "/images.php/" . $folder;
+	return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http") . "://" . $_SERVER['HTTP_HOST']  . "/food-court/images.php/" . $folder;
 }
 
 // Meredirect halaman

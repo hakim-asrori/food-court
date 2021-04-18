@@ -58,31 +58,31 @@ function uri_segment($uri = "")
 // URL base
 function base_url($folder = '')
 {
-	return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http") . "://" . $_SERVER['HTTP_HOST']  . "/projek1/" . $folder;
+	return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http") . "://" . $_SERVER['HTTP_HOST']  . "/" . $folder;
 }
 
 // URL CSS
 function css_url($folder = '')
 {
-	return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http") . "://" . $_SERVER['HTTP_HOST']  . "/projek1/css.php/" . $folder;
+	return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http") . "://" . $_SERVER['HTTP_HOST']  . "/css.php/" . $folder;
 }
 
 // URL CSS
 function plugin_url($folder = '')
 {
-	return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http") . "://" . $_SERVER['HTTP_HOST']  . "/projek1/plugins.php/" . $folder;
+	return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http") . "://" . $_SERVER['HTTP_HOST']  . "/plugins.php/" . $folder;
 }
 
 // URL js
 function js_url($folder = '')
 {
-	return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http") . "://" . $_SERVER['HTTP_HOST']  . "/projek1/javascript.php/" . $folder;
+	return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http") . "://" . $_SERVER['HTTP_HOST']  . "/javascript.php/" . $folder;
 }
 
 // URL images
 function image_url($folder = '')
 {
-	return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http") . "://" . $_SERVER['HTTP_HOST']  . "/projek1/images.php/" . $folder;
+	return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http") . "://" . $_SERVER['HTTP_HOST']  . "/images.php/" . $folder;
 }
 
 // Meredirect halaman

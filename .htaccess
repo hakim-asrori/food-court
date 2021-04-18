@@ -1,8 +1,6 @@
 Options -Indexes
 RewriteEngine On
 
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
@@ -27,3 +25,5 @@ RewriteRule ^login$ page/login.php
 RewriteRule ^registrasi$ page/registrasi.php
 RewriteRule ^checkout$ page/checkout.php
 RewriteRule ^keranjang$ page/keranjang.php
+RewriteRule ^pembelian$ page/pembelian.php
+

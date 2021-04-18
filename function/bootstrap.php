@@ -1,7 +1,11 @@
 <?php
 session_start();
 $koneksi = new mysqli("localhost", "root", "", 
+<<<<<<< HEAD
 "ifcfooud_hakim");
+=======
+"ifc-fooudcourt");
+>>>>>>> 5c31334f697704e150e04da23a41dc07bdcb474a
 
 // $koneksi = new mysqli("localhost", "root", "", "db_projek1");
 

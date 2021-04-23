@@ -17,6 +17,7 @@
     rel="stylesheet">
 
     <link rel="stylesheet" href="<?= css_url('bootstrap.min.css') ?>">
+    <link rel="stylesheet" href="<?= css_url('admin.css') ?>">
 
 </head>
 

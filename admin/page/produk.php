@@ -1,5 +1,10 @@
 <?php
 include "../../function/bootstrap.php";
+if (empty($_SESSION['admin'])) {
+	include "../../error/404-2.php";
+	die();
+}
+
 include "../layout/head.php";
 include "../layout/side.php";
 include "../layout/nav.php";

@@ -23,7 +23,9 @@ if (isset($_POST['login'])) {
 					$_SESSION['user'] = $ambil;
 					if (isset($_SESSION['keranjang']) OR !empty($_SESSION['keranjang'])) {
 						echo '<script>location="'.base_url("checkout").'"</script>';
-					}else {
+					} elseif (empty($_SESSION['keranjang'])) {
+						echo '<script>location="'.base_url("").'"</script>';
+					} else {
 						echo '<script>location="'.base_url("riwayat").'"</script>';
 					}
 				}

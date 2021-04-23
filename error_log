@@ -1,1 +1,0 @@
-[12-Apr-2021 21:06:20 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'wedus'@'localhost' (using password: YES) in /home2/ifcfooud/public_html/function/bootstrap.php on line 3

@@ -50,7 +50,7 @@ aria-hidden="true">
 <script src="<?php echo plugin_url("jquery-easing/jquery.easing.min.js") ?>"></script>
 
 <!-- Custom scripts for all pages-->
-<script src="<?php echo js_url("bootstrap.min.js") ?>"></script>
+<script src="<?php echo js_url("sb-admin-2.js") ?>"></script>
 <script>
     $('.custom-file-input').on('change', function() {
         let fileName = $(this).val().split('\\').pop();

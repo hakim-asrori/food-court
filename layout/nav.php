@@ -1,3 +1,6 @@
+<?php 
+$uri = uri_segment(1);
+?>
 <body class="bg-gray-100">
 	<nav class="navbar navbar-expand-lg navbar-light _bg-gradient-success fixed-top text-uppercase shadow">
 		<div class="container">
@@ -9,15 +12,20 @@
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto ">
-					<li class="nav-item active">
+					<li class="nav-item <?= ($uri == '') ? 'active' : '' ?>">
 						<a class="nav-link text-white" href="<?= base_url(''); ?>">Home</a>
 					</li>
-					<li class="nav-item">
+					<li class="nav-item <?= ($uri == 'keranjang') ? 'active' : '' ?>">
 						<a class="nav-link text-white" href="<?= base_url('keranjang'); ?>">Keranjang</a>
 					</li>
-					<li class="nav-item">
+					<li class="nav-item <?= ($uri == 'checkout') ? 'active' : '' ?>">
 						<a class="nav-link text-white" href="<?= base_url('checkout'); ?>">Checkout</a>
 					</li>
+					<?php if (isset($_SESSION['user'])): ?>
+						<li class="nav-item <?php //($uri == 'keranjang') ? 'active' : '' ?>">
+							<a class="nav-link text-white" href="<?= base_url(''); ?>">Riwayat Belanja</a>
+						</li>
+					<?php endif ?>
 				</ul>
 				<form class="form-inline my-2 my-lg-0">
 					<div class="input-group">
@@ -27,10 +35,15 @@
 						</div>
 					</div>
 				</form>
-				<a href="<?= base_url('registrasi') ?>" class="ml-2 btn btn-success text-capitalize">Daftar</a>
-				<a href="<?= base_url('login'); ?>" class="ml-2 btn btn-primary text-capitalize">Login</a>
+				<?php if (isset($_SESSION['user'])): ?>
+					<a href="<?= base_url('logout'); ?>" class="btn btn-danger ml-2 text-capitalize">Logout</a>
+					<a href="" class="btn btn-outline-light ml-2"><i class="fas fa-fw fa-user-edit"></i></a>
+					<?php else: ?>
+						<a href="<?= base_url('registrasi') ?>" class="ml-2 btn btn-success text-capitalize">Daftar</a>
+						<a href="<?= base_url('login'); ?>" class="ml-2 btn btn-primary text-capitalize">Login</a>
+					<?php endif ?>
+				</div>
 			</div>
-		</div>
-	</nav>
-	<div id="wrapper">
-		<div class="container">
+		</nav>
+		<div id="wrapper">
+			<div class="container">

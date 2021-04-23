@@ -29,3 +29,8 @@ RewriteRule ^checkout$ page/checkout.php
 RewriteRule ^keranjang$ page/keranjang.php
 RewriteRule ^pemesanan$ page/pemesanan.php
 RewriteRule ^pembelian$ page/pembelian.php
+
+RewriteRule ^detail/(.*)$ page/detail.php?slug=$1
+
+# Admin
+RewriteRule ^admin/produk$ admin/page/produk.php

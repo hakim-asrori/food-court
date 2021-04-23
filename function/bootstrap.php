@@ -2,7 +2,7 @@
 session_start();
 // $koneksi = new mysqli("localhost", "root", "", "");
 
-$koneksi = new mysqli("localhost", "root", "", "db_projek1");
+$koneksi = new mysqli("localhost", "root", "", "db_new");
 
 
 // Memebuat token CSRF
@@ -98,4 +98,12 @@ function redirect($uri = '', $method = '')
 		break;
 	}
 	exit;
+}
+
+// Format harga
+function harga($angka){
+	
+	$hasil_rupiah = "Rp " . number_format($angka,0,',','.');
+	return $hasil_rupiah;
+ 
 }

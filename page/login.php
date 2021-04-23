@@ -11,15 +11,21 @@ if (isset($_POST['login'])) {
 	} elseif (empty($password)) {
 		$msgPass = "This field is required";
 	} else {
-		$ambil = $koneksi->query("SELECT * FROM tb_users WHERE username = '$account' OR email = '$account' AND id_role = 2")->fetch_assoc();
+		$ambil = $koneksi->query("SELECT * FROM tb_users WHERE username = '$account' OR email = '$account'")->fetch_assoc();
 
 		if ($ambil) {
 			if (password_verify($password, $ambil['password'])) {
 				echo '<script>alert("Your account verified")</script>';
-				if (isset($_SESSION['keranjang']) OR !empty($_SESSION['keranjang'])) {
-					echo '<script>location="'.base_url("checkout").'"</script>';
-				}else {
-					echo '<script>location="'.base_url("riwayat").'"</script>';
+				if ($ambil['id_role'] == 99) {
+					$_SESSION['admin'] = $ambil;
+					redirect('admin','refresh');
+				} else {
+					$_SESSION['user'] = $ambil;
+					if (isset($_SESSION['keranjang']) OR !empty($_SESSION['keranjang'])) {
+						echo '<script>location="'.base_url("checkout").'"</script>';
+					}else {
+						echo '<script>location="'.base_url("riwayat").'"</script>';
+					}
 				}
 			} else {
 				echo '<script>alert("Wrong password!")</script>';

@@ -1,5 +1,8 @@
 <?php
 include "../function/bootstrap.php";
+if (empty($_SESSION['admin'])) {
+	redirect('login','refresh');
+}
 include "layout/head.php";
 include "layout/side.php";
 include "layout/nav.php";

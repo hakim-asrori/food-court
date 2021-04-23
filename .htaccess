@@ -24,6 +24,7 @@ RewriteRule ^images.php/(.*)$ images/$1
 
 # User
 RewriteRule ^login$ page/login.php
+RewriteRule ^logout$ page/logout.php
 RewriteRule ^registrasi$ page/registrasi.php
 RewriteRule ^checkout$ page/checkout.php
 RewriteRule ^keranjang$ page/keranjang.php

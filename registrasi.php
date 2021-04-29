@@ -1,7 +1,7 @@
 <?php 
-include "../function/bootstrap.php";
-include "../layout/head.php"; 
-include "../layout/nav.php"; 
+include "function/bootstrap.php";
+include "layout/head.php"; 
+include "layout/nav.php"; 
 
 if (isset($_POST['register'])) {
   $username = anti_inject($_POST['username']);
@@ -113,4 +113,4 @@ if (isset($_POST['register'])) {
     }
   }
 </script>
-<?php include "../layout/foot.php"; ?>
+<?php include "layout/foot.php"; ?>

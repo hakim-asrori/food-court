@@ -7,8 +7,8 @@
 
 	<title>Food Court</title>
 
-	<link rel="stylesheet" href="<?= css_url('bootstrap.min.css') ?>">
-	<link rel="stylesheet" href="<?= plugin_url('fontawesome-free/css/all.css') ?>">
-	<link rel="stylesheet" href="<?= plugin_url('lightbox2/css/lightbox.min.css') ?>">
-	<link rel="stylesheet" type="text/css" href="<?= css_url('user.css') ?>">
+	<link rel="stylesheet" href="<?= '/assets/css/bootstrap.min.css' ?>">
+	<link rel="stylesheet" href="<?= '/assets/vendor/fontawesome-free/css/all.css' ?>">
+	<link rel="stylesheet" href="<?= '/assets/vendor/lightbox2/css/lightbox.min.css' ?>">
+	<link rel="stylesheet" type="text/css" href="<?= '/assets/css/user.css' ?>">
 </head>

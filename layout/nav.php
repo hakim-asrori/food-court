@@ -13,17 +13,17 @@ $uri = uri_segment(1);
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto ">
 					<li class="nav-item <?= ($uri == '') ? 'active' : '' ?>">
-						<a class="nav-link text-white" href="<?= base_url(''); ?>">Home</a>
+						<a class="nav-link text-white" href="<?= './'; ?>">Home </a>
 					</li>
-					<li class="nav-item <?= ($uri == 'keranjang') ? 'active' : '' ?>">
-						<a class="nav-link text-white" href="<?= base_url('keranjang'); ?>">Keranjang</a>
+					<li class="nav-item <?= ($uri == 'keranjang.php') ? 'active' : '' ?>">
+						<a class="nav-link text-white" href="<?= 'keranjang.php'; ?>">Keranjang</a>
 					</li>
-					<li class="nav-item <?= ($uri == 'checkout') ? 'active' : '' ?>">
-						<a class="nav-link text-white" href="<?= base_url('checkout'); ?>">Checkout</a>
+					<li class="nav-item <?= ($uri == 'checkout.php') ? 'active' : '' ?>">
+						<a class="nav-link text-white" href="<?= 'checkout.php'; ?>">Checkout</a>
 					</li>
 					<?php if (isset($_SESSION['user'])): ?>
 						<li class="nav-item <?php //($uri == 'keranjang') ? 'active' : '' ?>">
-							<a class="nav-link text-white" href="<?= base_url(''); ?>">Riwayat Belanja</a>
+							<a class="nav-link text-white" href="<?= ''; ?>">Riwayat Belanja</a>
 						</li>
 					<?php endif ?>
 				</ul>
@@ -36,11 +36,11 @@ $uri = uri_segment(1);
 					</div>
 				</form>
 				<?php if (isset($_SESSION['user'])): ?>
-					<a href="<?= base_url('logout'); ?>" class="btn btn-danger ml-2 text-capitalize">Logout</a>
+					<a href="<?= 'logout.php'; ?>" class="btn btn-danger ml-2 text-capitalize">Logout</a>
 					<a href="" class="btn btn-outline-light ml-2"><i class="fas fa-fw fa-user-edit"></i></a>
 					<?php else: ?>
-						<a href="<?= base_url('registrasi') ?>" class="ml-2 btn btn-success text-capitalize">Daftar</a>
-						<a href="<?= base_url('login'); ?>" class="ml-2 btn btn-primary text-capitalize">Login</a>
+						<a href="<?= 'registrasi.php' ?>" class="ml-2 btn btn-success text-capitalize">Daftar</a>
+						<a href="<?= 'login.php'; ?>" class="ml-2 btn btn-primary text-capitalize">Login</a>
 					<?php endif ?>
 				</div>
 			</div>

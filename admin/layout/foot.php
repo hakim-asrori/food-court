@@ -36,21 +36,21 @@ aria-hidden="true">
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="<?= base_url('logout'); ?>">Logout</a>
+            <a class="btn btn-primary" href="<?= base_url('logout.php'); ?>">Logout</a>
         </div>
     </div>
 </div>
 </div>
 
 <!-- Bootstrap core JavaScript-->
-<script src="<?php echo plugin_url("jquery/jquery.min.js") ?>"></script>
-<script src="<?php echo plugin_url("bootstrap/js/bootstrap.bundle.min.js") ?>"></script>
+<script src="<?php echo "/assets/vendor/jquery/jquery.min.js" ?>"></script>
+<script src="<?php echo "/assets/vendor/bootstrap/js/bootstrap.bundle.min.js" ?>"></script>
 
 <!-- Core plugin JavaScript-->
-<script src="<?php echo plugin_url("jquery-easing/jquery.easing.min.js") ?>"></script>
+<script src="<?php echo "/assets/vendor/jquery-easing/jquery.easing.min.js" ?>"></script>
 
 <!-- Custom scripts for all pages-->
-<script src="<?php echo js_url("sb-admin-2.js") ?>"></script>
+<script src="<?php echo "/assets/js/sb-admin-2.js" ?>"></script>
 <script>
     $('.custom-file-input').on('change', function() {
         let fileName = $(this).val().split('\\').pop();

@@ -4,7 +4,7 @@
 
 <div class="row">
 
-	<?php include "page/home.php" ?>
+	<?php include "home.php" ?>
 
 </div>
 <?php include "layout/foot.php"; ?>

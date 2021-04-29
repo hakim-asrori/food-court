@@ -8,7 +8,7 @@ while ($p = $produk->fetch_assoc()) {
 			<!-- <a href="" data-lightbox="image-1" data-title="My caption"> -->
 				<!-- </a> -->
 				<div class="_card-body">
-					<img src="<?= image_url($p['foto']) ?>" alt="">
+					<img src="<?= "/images/".$p['foto'] ?>" alt="">
 					<div class="_card-text">
 						<p class="font-weight-bold ml-3 mt-2 h5 text-primary"><?= $p['nama'] ?></p>
 						<p class="ml-3 my-0"><?= harga($p['harga']) ?></p>

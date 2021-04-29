@@ -1,6 +1,6 @@
-<?php include "../function/bootstrap.php"; ?>
-<?php include "../layout/head.php"; ?>
-<?php include "../layout/nav.php"; ?>
+<?php include "function/bootstrap.php"; ?>
+<?php include "layout/head.php"; ?>
+<?php include "layout/nav.php"; ?>
 
 <h1>Isi Keranjang</h1>
 <div class="card">
@@ -33,4 +33,4 @@
 </div>
 
 
-<?php include "../layout/foot.php"; ?>
+<?php include "layout/foot.php"; ?>

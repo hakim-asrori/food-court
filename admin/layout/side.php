@@ -26,7 +26,7 @@
 
         <!-- Menu Produk -->
         <li class="nav-item">
-            <a class="nav-link" href="<?= base_url('admin/produk'); ?>">
+            <a class="nav-link" href="<?= base_url('admin/produk.php'); ?>">
                 <i class="fas fa-fw fa-list"></i>
                 <span>Produk</span>
             </a>
@@ -35,7 +35,7 @@
 
         <!-- Menu Pembelian -->
         <li class="nav-item">
-            <a class="nav-link" href="<?= base_url('admin/pembelian'); ?>">
+            <a class="nav-link" href="<?= base_url('admin/pembelian.php'); ?>">
                 <i class="fas fa-fw fa-money-check"></i>
                 <span>Pembelian</span>
             </a>
@@ -44,7 +44,7 @@
 
         <!-- Menu Laporan -->
         <li class="nav-item">
-            <a class="nav-link" href="<?= base_url('admin/laporan'); ?>">
+            <a class="nav-link" href="<?= base_url('admin/laporan.php'); ?>">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Laporan</span>
             </a>
@@ -53,7 +53,7 @@
 
         <!-- Menu Pelanggan -->
         <li class="nav-item">
-            <a class="nav-link" href="<?= base_url('admin/pelanggan'); ?>">
+            <a class="nav-link" href="<?= base_url('admin/pelanggan.php'); ?>">
                 <i class="fas fa-fw fa-user"></i>
                 <span>Pelanggan</span>
             </a>

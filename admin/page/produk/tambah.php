@@ -13,12 +13,12 @@ if (isset($_POST['simpan'])) {
 		$error_ext = "Ekstensi terlarang";
 	} else {
 		$foto = rand() . "_" . $filename;
-		move_uploaded_file($_FILES['foto']['tmp_name'], "../../images/".$foto);
+		move_uploaded_file($_FILES['foto']['tmp_name'], "../assets/images/".$foto);
 
 		$koneksi->query("INSERT INTO tb_produk (nama, slug, harga, deskripsi, foto) VALUES('$nama', '$slug', '$harga', '$deskripsi', '$foto')");
 
 		echo "<script>alert('Produk berhasil ditambahkan');</script>";
-		echo "<script>location='".base_url('admin/produk')."';</script>";
+		echo "<script>location='".base_url('admin/produk.php')."';</script>";
 	}
 }
 ?>

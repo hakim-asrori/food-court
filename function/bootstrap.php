@@ -1,8 +1,8 @@
 <?php
 session_start();
-$koneksi = new mysqli("localhost", "ifcfooud_hakim", "[q-4~tM47DBT","ifcfooud_asol");
+// $koneksi = new mysqli("localhost", "ifcfooud_hakim", "[q-4~tM47DBT","ifcfooud_asol");
 
-// $koneksi = new mysqli("localhost", "root", "", "db_projek1_new");
+$koneksi = new mysqli("localhost", "root", "", "db_projek1_new");
 
 
 // Memebuat token CSRF
@@ -61,30 +61,6 @@ function base_url($folder = '')
 	return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http") . "://" . $_SERVER['HTTP_HOST']  . "/" . $folder;
 }
 
-// URL CSS
-function css_url($folder = '')
-{
-	return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http") . "://" . $_SERVER['HTTP_HOST']  . "/css.php/" . $folder;
-}
-
-// URL CSS
-function plugin_url($folder = '')
-{
-	return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http") . "://" . $_SERVER['HTTP_HOST']  . "/plugins.php/" . $folder;
-}
-
-// URL js
-function js_url($folder = '')
-{
-	return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http") . "://" . $_SERVER['HTTP_HOST']  . "/javascript.php/" . $folder;
-}
-
-// URL images
-function image_url($folder = '')
-{
-	return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http") . "://" . $_SERVER['HTTP_HOST']  . "/images.php/" . $folder;
-}
-
 // Meredirect halaman
 function redirect($uri = '', $method = '')
 {
@@ -105,5 +81,5 @@ function harga($angka){
 	
 	$hasil_rupiah = "Rp " . number_format($angka,0,',','.');
 	return $hasil_rupiah;
- 
+	
 }

@@ -1,6 +1,6 @@
-<?php include "../function/bootstrap.php"; ?>
-<?php include "../layout/head.php"; ?>
-<?php include "../layout/nav.php"; ?>
+<?php include "function/bootstrap.php"; ?>
+<?php include "layout/head.php"; ?>
+<?php include "layout/nav.php"; ?>
 <?php
 if (isset($_POST['login'])) {
 	$account = anti_inject($_POST['account']);
@@ -97,4 +97,4 @@ if (isset($_POST['login'])) {
 		}
 	}
 </script>
-<?php include "../layout/foot.php"; ?>
+<?php include "layout/foot.php"; ?>

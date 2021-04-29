@@ -22,11 +22,11 @@ if (isset($_POST['login'])) {
 				} else {
 					$_SESSION['user'] = $ambil;
 					if (isset($_SESSION['keranjang']) OR !empty($_SESSION['keranjang'])) {
-						echo '<script>location="'.base_url("checkout").'"</script>';
+						echo '<script>location="'.base_url("checkout.php").'"</script>';
 					} elseif (empty($_SESSION['keranjang'])) {
 						echo '<script>location="'.base_url("").'"</script>';
 					} else {
-						echo '<script>location="'.base_url("riwayat").'"</script>';
+						echo '<script>location="'.base_url("riwayat.php").'"</script>';
 					}
 				}
 			} else {
@@ -80,7 +80,7 @@ if (isset($_POST['login'])) {
 					</div>
 				</form>
 				<div class="small text-center">
-					<a href="<?= base_url('registrasi'); ?>">Jika belum punya akun, silahkan registrasi terlebih dahulu</a>
+					<a href="<?= base_url('registrasi.php'); ?>">Jika belum punya akun, silahkan registrasi terlebih dahulu</a>
 				</div>
 			</div>
 		</div>

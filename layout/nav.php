@@ -22,8 +22,8 @@ $uri = uri_segment(1);
 						<a class="nav-link text-white" href="<?= 'checkout.php'; ?>">Checkout</a>
 					</li>
 					<?php if (isset($_SESSION['user'])): ?>
-						<li class="nav-item <?php //($uri == 'keranjang') ? 'active' : '' ?>">
-							<a class="nav-link text-white" href="<?= ''; ?>">Riwayat Belanja</a>
+						<li class="nav-item <?php ($uri == 'riwayat-belanja.php') ? 'active' : '' ?>">
+							<a class="nav-link text-white" href="<?= '/riwayat-belanja.php'; ?>">Riwayat Belanja</a>
 						</li>
 					<?php endif ?>
 				</ul>

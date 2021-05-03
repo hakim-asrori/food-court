@@ -12,7 +12,7 @@ if (isset($_POST['simpan'])) {
 	if (!in_array($ext, $ekstensi)) {
 		$error_ext = "Ekstensi terlarang";
 	} else {
-		$foto = rand() . "_" . $filename;
+		$foto = sha1(rand() . "_" . $filename);
 		move_uploaded_file($_FILES['foto']['tmp_name'], "../assets/images/".$foto);
 
 		$koneksi->query("INSERT INTO tb_produk (nama, slug, harga, deskripsi, foto) VALUES('$nama', '$slug', '$harga', '$deskripsi', '$foto')");

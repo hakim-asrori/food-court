@@ -9,14 +9,27 @@ include "layout/nav.php";
 <div class="container-fluid">
 	<?php
 	if (isset($_GET['page'])) {
-		if ($_GET['page'] == "tambah") {
+		switch ($_GET['page']) {
+			case "tambah":
 			include "page/produk/tambah.php";
-		} elseif ($_GET['page'] == "hapus") {
+			break;
+
+			case "hapus":
 			include "page/produk/hapus.php";
+			break;
+
+			case "edit":
+			include "page/produk/edit.php";
+			break;
+
+			default:
+			include "page/produk/list.php";
+			break;
 		}
 	} else {
 		include "page/produk/list.php";
 	}
+
 	?>
 </div>
 

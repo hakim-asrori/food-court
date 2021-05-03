@@ -23,8 +23,8 @@ $ambil = $koneksi->query("SELECT * FROM tb_produk");
 				<td><?= $a['nama'] ?></td>
 				<td><?= harga($a['harga']) ?></td>
 				<td>
-					<a href="<?= base_url('detail.php?search='.$a['slug']); ?>" class="badge badge-success">Detail</a>
-					<a href="" class="badge badge-warning">Edit</a>
+					<a href="<?= base_url('detail.php?search='.$a['slug']); ?>" class="badge badge-success" target="blank">Detail</a>
+					<a href="<?= base_url('admin/produk.php?page=edit&search='.$a['slug']); ?>" class="badge badge-warning">Edit</a>
 					<a href="<?= base_url('admin/produk.php?page=hapus&search='.$a['slug']); ?>" class="badge badge-danger">Hapus</a>
 				</td>
 			</tr>

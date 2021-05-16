@@ -15,6 +15,7 @@ if (isset($_GET['search'])) {
 		padding: .5rem;
 	}
 </style>
+<input type="hidden" id="uri" value="<?= uri_segment(1) ?>">
 <div class="card mb-3">
 	<div class="card-body">
 		<div class="row">
@@ -29,8 +30,10 @@ if (isset($_GET['search'])) {
 					<p>Deskripsi</p>
 					<p><?= $ambil['deskripsi'] ?></p>
 				</div>
-				<div>
-					<button class="btn btn-success">Beli</button>
+				<div class="mb-3">
+					<form method="post" action="/beli.php?page=tambah&id=<?= $ambil['id_produk'] ?>" class="d-inline">
+						<button class="btn btn-success">Beli</button>
+					</form>
 				</div>
 			</div>
 		</div>

@@ -5,10 +5,12 @@ if (isset($_GET['page'])) {
 		$id_produk = $_GET['id'];
 		$produk = $koneksi->query("SELECT * FROM tb_produk WHERE id_produk = '$id_produk'")->fetch_assoc();
 		switch ($_GET['page']) {
+
+			// Tambah Produk
 			case "tambah":
 			if ($produk) {
 				if (isset($_SESSION['keranjang'][$produk['id_produk']])) {
-					$_SESSION['keranjang'][$produk['id_produk']]+=1;
+					$_SESSION['keranjang'][$produk['id_produk']] += 1;
 				} else {
 					$_SESSION['keranjang'][$produk['id_produk']] = 1;
 				}
@@ -19,6 +21,25 @@ if (isset($_GET['page'])) {
 			}
 			break;
 
+			// Kurangi Produk
+			case "kurang":
+			$isi = $_GET['isi'];
+			if ($produk) {
+				if ($isi == 1) {
+					unset($_SESSION["keranjang"][$produk['id_produk']]);
+				} else {
+					if (isset($_SESSION['keranjang'][$produk['id_produk']])) {
+						$_SESSION['keranjang'][$produk['id_produk']] -= 1;
+					} else {
+						$_SESSION['keranjang'][$produk['id_produk']] = 1;
+					}
+				}
+			} else {
+				include "./assets/error/404-2.php";
+			}
+			break;
+
+			// Hapus Produk
 			case "hapus":
 			unset($_SESSION["keranjang"][$produk['id_produk']]);
 

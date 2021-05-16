@@ -1,7 +1,8 @@
-<?php include "function/bootstrap.php"; ?>
-<?php include "layout/head.php"; ?>
-<?php include "layout/nav.php"; ?>
 <?php
+include "function/bootstrap.php"; 
+include "layout/head.php";
+include "layout/nav.php";
+
 if (isset($_POST['login'])) {
 	$account = anti_inject($_POST['account']);
 	$password = $_POST['password'];
@@ -11,7 +12,7 @@ if (isset($_POST['login'])) {
 	} elseif (empty($password)) {
 		$msgPass = "This field is required";
 	} else {
-		$ambil = $koneksi->query("SELECT * FROM tb_users WHERE username = '$account' OR email = '$account'")->fetch_assoc();
+		$ambil = $koneksi->query("SELECT * FROM tb_users WHERE email = '$account'")->fetch_assoc();
 
 		if ($ambil) {
 			if (password_verify($password, $ambil['password'])) {
@@ -19,12 +20,17 @@ if (isset($_POST['login'])) {
 				if ($ambil['id_role'] == 99) {
 					$_SESSION['admin'] = $ambil;
 					redirect('admin','refresh');
+				} elseif ($ambil['id_role'] == 88) {
+					$_SESSION['kurir'] = $ambil;
+					redirect('kurir','refresh');
 				} else {
 					$_SESSION['user'] = $ambil;
-					if (isset($_SESSION['keranjang']) OR !empty($_SESSION['keranjang'])) {
-						echo '<script>location="'.base_url("checkout.php").'"</script>';
+					if (empty($ambil['nama'])) {
+						echo '<script>location="'.base_url("profil.php").'"</script>';
 					} elseif (empty($_SESSION['keranjang'])) {
 						echo '<script>location="'.base_url("").'"</script>';
+					} elseif (isset($_SESSION['keranjang']) OR !empty($_SESSION['keranjang'])) {
+						echo '<script>location="'.base_url("checkout.php").'"</script>';
 					} else {
 						echo '<script>location="'.base_url("riwayat.php").'"</script>';
 					}
@@ -47,6 +53,7 @@ if (isset($_POST['login'])) {
 		font-family: 'PT Mono', 'Nunito', monospace;
 	}
 </style>
+<input type="hidden" id="uri" value="<?= uri_segment(1) ?>">
 <div class="row justify-content-center align-items-center">
 
 	<div class="col-lg-6">
@@ -56,7 +63,7 @@ if (isset($_POST['login'])) {
 
 				<form method="post">
 					<div class="form-group">
-						<input type="text" class="form-control rounded-pill p-4 <?= isset($msgAkun) ? 'is-invalid' : '' ?>" placeholder="Username atau email" name="account" id="account" value="<?= isset($account) ? $account : '' ?>">
+						<input type="email" class="form-control rounded-pill p-4 <?= isset($msgAkun) ? 'is-invalid' : '' ?>" placeholder="Username atau email" name="account" id="account" value="<?= isset($account) ? $account : '' ?>">
 						<?php if (isset($msgAkun)): ?>
 							<div class="invalid-feedback">
 								<?= $msgAkun ?>

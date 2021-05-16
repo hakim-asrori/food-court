@@ -6,3 +6,5 @@ RewriteEngine On
 
 ErrorDocument 404 /assets/error/404.php
 ErrorDocument 403 /assets/error/403.php
+
+RewriteRule ^search.php$ /layout/search.php

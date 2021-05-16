@@ -5,7 +5,7 @@
 <footer class="sticky-footer bg-white">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2020</span>
+            <span>Copyright &copy; ifc-fooudcourt.my.id 2020</span>
         </div>
     </div>
 </footer>
@@ -51,6 +51,7 @@ aria-hidden="true">
 
 <!-- Custom scripts for all pages-->
 <script src="<?php echo "/assets/js/sb-admin-2.js" ?>"></script>
+<script src="<?php echo "/assets/js/admin.js" ?>"></script>
 <script>
     $('.custom-file-input').on('change', function() {
         let fileName = $(this).val().split('\\').pop();

@@ -22,25 +22,25 @@ $uri = uri_segment(1);
 						<a class="nav-link text-white" href="<?= 'checkout.php'; ?>">Checkout</a>
 					</li>
 					<?php if (isset($_SESSION['user'])): ?>
-						<li class="nav-item <?php ($uri == 'riwayat-belanja.php') ? 'active' : '' ?>">
-							<a class="nav-link text-white" href="<?= '/riwayat-belanja.php'; ?>">Riwayat Belanja</a>
+						<li class="nav-item <?= ($uri == 'riwayat.php') ? 'active' : '' ?>">
+							<a class="nav-link text-white" href="<?= '/riwayat.php'; ?>">Riwayat Belanja</a>
 						</li>
 					<?php endif ?>
 				</ul>
-				<form class="form-inline my-2 my-lg-0">
+				<form class="form-inline my-2 my-lg-0" action="cari.php">
 					<div class="input-group">
-						<input type="text" class="form-control">
+						<input type="search" class="form-control" id="search" name="search">
 						<div class="input-group-append">
 							<button class="btn btn-primary" id="basic-addon2">Cari</button>
 						</div>
 					</div>
 				</form>
 				<?php if (isset($_SESSION['user'])): ?>
-					<a href="<?= 'logout.php'; ?>" class="btn btn-danger ml-2 text-capitalize">Logout</a>
-					<a href="" class="btn btn-outline-light ml-2"><i class="fas fa-fw fa-user-edit"></i></a>
+					<a href="<?= '/logout.php'; ?>" class="btn btn-danger ml-2 text-capitalize">Logout</a>
+					<a href="/profil.php" class="btn btn-outline-light ml-2"><i class="fas fa-fw fa-user-edit"></i></a>
 					<?php else: ?>
-						<a href="<?= 'registrasi.php' ?>" class="ml-2 btn btn-success text-capitalize">Daftar</a>
-						<a href="<?= 'login.php'; ?>" class="ml-2 btn btn-primary text-capitalize">Login</a>
+						<a href="<?= '/registrasi.php' ?>" class="ml-2 btn btn-success text-capitalize">Daftar</a>
+						<a href="<?= '/login.php'; ?>" class="ml-2 btn btn-primary text-capitalize">Login</a>
 					<?php endif ?>
 				</div>
 			</div>

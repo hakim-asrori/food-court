@@ -31,6 +31,40 @@ nav .navbar-nav .nav-item.active {
   height: 200px;
 }
 
+#tambah_produk {
+  border: 1px solid #ddd;
+  width: 60%;
+}
+
+#tambah_produk #btn i {
+  font-size: 10px;
+}
+
+#tambah_produk #btn {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+#tambah_produk #btn button {
+  border: none;
+}
+
+@media (max-width: 680px) {
+  #tambah_produk {
+    width: 1.5rem;
+  }
+
+  #tambah_produk #btn button {
+    width: 100%;
+  }
+
+  #tambah_produk #btn {
+    flex-direction: column;
+  }
+}
+
 @media screen and (max-width: 991px) {
   nav.navbar {
     padding: .5rem 1rem;

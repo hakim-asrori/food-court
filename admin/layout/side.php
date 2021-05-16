@@ -5,7 +5,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/admin">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
@@ -27,7 +27,7 @@
         <!-- Menu Produk -->
         <li class="nav-item">
             <a class="nav-link" href="<?= base_url('admin/produk.php'); ?>">
-                <i class="fas fa-fw fa-list"></i>
+                <i class="fas fa-fw fa-cube"></i>
                 <span>Produk</span>
             </a>
         </li>
@@ -36,7 +36,7 @@
         <!-- Menu Pembelian -->
         <li class="nav-item">
             <a class="nav-link" href="<?= base_url('admin/pembelian.php'); ?>">
-                <i class="fas fa-fw fa-money-check"></i>
+                <i class="fas fa-fw fa-shopping-cart"></i>
                 <span>Pembelian</span>
             </a>
         </li>
@@ -45,17 +45,8 @@
         <!-- Menu Laporan -->
         <li class="nav-item">
             <a class="nav-link" href="<?= base_url('admin/laporan.php'); ?>">
-                <i class="fas fa-fw fa-table"></i>
+                <i class="fas fa-fw fa-file-alt"></i>
                 <span>Laporan</span>
-            </a>
-        </li>
-        <hr class="sidebar-divider my-0">
-
-        <!-- Menu Pelanggan -->
-        <li class="nav-item">
-            <a class="nav-link" href="<?= base_url('admin/pelanggan.php'); ?>">
-                <i class="fas fa-fw fa-user"></i>
-                <span>Pelanggan</span>
             </a>
         </li>
         <hr class="sidebar-divider my-0">

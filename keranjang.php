@@ -1,12 +1,19 @@
-<?php include "function/bootstrap.php"; ?>
-<?php include "layout/head.php"; ?>
-<?php include "layout/nav.php"; ?>
 <?php
+include "function/bootstrap.php";
+include "layout/head.php";
+include "layout/nav.php";
+
 if (empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"])) {
   echo "<script>alert('Keranjang kosong, silahkan belanja terlebih dahulu');</script>";
   echo "<script>location='/';</script>";
 }
 ?>
+<input type="hidden" id="uri" value="<?= uri_segment(1) ?>">
+
+<div class="alert alert-danger">
+  Data keranjang akan hilang jika Browser anda di tutup.
+</div>
+
 <h3>Isi Keranjang</h3>
 <div class="card">
   <div class="card-body">
@@ -33,7 +40,15 @@ if (empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"])) {
               <th scope="row"><?= $i++ ?></th>
               <td><?= $produk['nama'] ?></td>
               <td><?= harga($produk['harga']) ?></td>
-              <td><?= $jumlah ?></td>
+              <td>
+                <div id="tambah_produk">
+                  <div class="d-flex" id="btn">
+                    <button class="badge-warning minus" id="minus" data-id="<?= $produk['id_produk'] ?>" data-isi="<?= $jumlah ?>"><i class="fas fa-minus"></i></button>
+                    <?= $jumlah ?>
+                    <button class="badge-primary plus" id="plus" data-id="<?= $produk['id_produk'] ?>"><i class="fas fa-plus"></i></button>
+                  </div>
+                </div>
+              </td>
               <td><?= harga($totalHarga) ?></td>
               <td>
                 <form method="post" action="/beli.php?page=hapus&id=<?= $produk['id_produk'] ?>" class="d-inline">

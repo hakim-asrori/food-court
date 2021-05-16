@@ -4,13 +4,10 @@ include "layout/head.php";
 include "layout/nav.php"; 
 
 if (isset($_POST['register'])) {
-  $username = anti_inject($_POST['username']);
   $email = anti_inject($_POST['email']);
   $password1 = $_POST['password1'];
   $password2 = $_POST['password2'];
-  if (empty($username)) {
-    $msgUser = "This field username is required!";
-  } elseif (empty($email)) {
+  if (empty($email)) {
     $msgEmail = "This field email is required!";
   } elseif (empty($password1)) {
     $msgPass = "This field password is required!";
@@ -25,7 +22,7 @@ if (isset($_POST['register'])) {
         $msgEmail = "This email has already registered!";
       } else {
         $password = password_hash($password1, PASSWORD_ARGON2I);
-        $koneksi->query("INSERT INTO tb_users (username, email, password, id_role) VALUES('$username', '$email', '$password', 2)");
+        $koneksi->query("INSERT INTO tb_users (email, password, id_role) VALUES('$email', '$password', 2)");
         echo '<script>alert("Your account has been created")</script>';
         echo '<script>location="'.base_url("login.php").'"</script>';
       }
@@ -43,7 +40,8 @@ if (isset($_POST['register'])) {
     font-family: 'PT Mono', 'Nunito', monospace;
   }
 </style>
-<div class="row justify-content-center align-items-center">
+<input type="hidden" id="uri" value="<?= uri_segment(1) ?>">
+<div class="row justify-content-center align-items-center pt-5">
 
   <div class="col-lg-7">
     <div class="card p-3 shadow-sm">
@@ -51,14 +49,6 @@ if (isset($_POST['register'])) {
         <h2 class="text-uppercase text-center mb-5">Selamat Datang</h2>
 
         <form action="" method="post">
-          <div class="form-group">
-            <input type="text" class="form-control rounded-pill p-4 <?= isset($msgUser) ? 'is-invalid' : '' ?>" placeholder="Username" name="username" id="username" value="<?= isset($username) ? $username : '' ?>">
-            <?php if (isset($msgUser)): ?>
-              <div class="invalid-feedback">
-                <?= $msgUser ?>
-              </div>
-            <?php endif ?>
-          </div>
           <div class="form-group">
             <input type="email" class="form-control rounded-pill p-4 <?= isset($msgEmail) ? 'is-invalid' : '' ?>" placeholder="Email" name="email" id="email" value="<?= isset($email) ? $email : '' ?>">
             <?php if (isset($msgEmail)): ?>

@@ -62,9 +62,9 @@
 				<div class="small text-danger mt-0">
 					<?php if (isset($error_ext)): ?>
 						<?= $error_ext ?><br>
-						* ekstensi yang boleh .png, .jpg, .png
+						* ekstensi yang boleh .png, .jpg, .jpeg
 						<?php else: ?>
-							* ekstensi gambar .png, .jpg, .png
+							* ekstensi gambar .png, .jpg, .jpeg
 						<?php endif ?>
 					</div>
 				</div>

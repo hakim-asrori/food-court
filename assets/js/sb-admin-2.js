@@ -3,9 +3,9 @@
 
   // Toggle the side navigation
   if ($(window).width() < 366) {
-      $("body").addClass("sidebar-toggled");
-      $(".sidebar").addClass("toggled");
-    }
+    $("body").addClass("sidebar-toggled");
+    $(".sidebar").addClass("toggled");
+  }
   $(window).resize(function() {
     if ($(window).width() < 768) {
       $("body").addClass("sidebar-toggled");

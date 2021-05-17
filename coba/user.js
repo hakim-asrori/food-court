@@ -4,6 +4,13 @@ $(function() {
 
 		$("#_sidebar").toggleClass("show");
 		$("#content").toggleClass("slider");
+		if ($(".navbar #btn-toggle i").hasClass("fa-bars")) {
+			$(".navbar #btn-toggle i").removeClass("fa-bars");
+			$(".navbar #btn-toggle i").addClass("fa-times");
+		} else {
+			$(".navbar #btn-toggle i").removeClass("fa-times");
+			$(".navbar #btn-toggle i").addClass("fa-bars");
+		}
 
 	});
 

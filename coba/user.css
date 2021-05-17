@@ -25,13 +25,16 @@ nav.navbar .navbar-name {
 	text-align: center;
 }
 
-nav.navbar .navbar-name .navbar-toggle:hover {
-	background-color: #eee;
+nav.navbar .navbar-name button {
+	border: none;
+	outline: none;
+	background-color: white;
+	margin-left: 10px;
+	font-size: 1.1rem;
 }
 
-nav.navbar .navbar-name a {
-	margin-left: 10px;
-	font-size: 1rem;
+nav.navbar .navbar-name button:hover {
+	color: blue;
 }
 
 nav.navbar .navbar-search {
@@ -68,6 +71,18 @@ nav.navbar .navbar-search-2 {
 	display: none;
 }
 
+nav.navbar .navbar-search-2 button#search-toggle {
+	border: none;
+	outline: none;
+	background-color: white;
+	margin-right: auto;
+	font-size: 1.1rem;
+}
+
+nav.navbar .navbar-search-2 button#search-toggle:hover {
+	color: blue;
+}
+
 nav.navbar .navbar-menu {
 	height: 40px;
 }
@@ -100,6 +115,7 @@ nav.navbar .navbar-menu ul {
 	justify-content: space-evenly;
 	background-color: #fff;
 	transition: all 1s;
+	z-index: 1;
 }
 
 .wrapper ._sidebar.show {
@@ -145,7 +161,7 @@ nav.navbar .navbar-menu ul {
 }
 
 .wrapper .content.slider {
-	margin-left: -60px;
+	margin-left: 0;
 }
 
 .wrapper .content .card {
@@ -184,7 +200,7 @@ nav.navbar .navbar-menu ul {
 	}
 
 	.wrapper .content.slider {
-		margin-left: 230px;
+		/* margin-left: 230px; */
 	}
 
 	.wrapper .content .card ._card-body {

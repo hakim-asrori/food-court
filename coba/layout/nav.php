@@ -5,7 +5,7 @@ $uri = uri_segment(2);
 
 	<nav class="navbar bg-white">
 		<div class="navbar-name">
-			<a href="#" id="btn-toggle"><i class="fas fa-fw fa-bars" style="font-size: 1.4em"></i></a>
+			<button id="btn-toggle" class="navbar-toggle"><i class="fas fa-fw fa-bars" style="font-size: 1.4em"></i></button>
 			<a href="./">Andon Mangan</a>
 		</div>
 		<form action="cari.php" class="navbar-search">
@@ -26,9 +26,9 @@ $uri = uri_segment(2);
 			</div>
 
 			<div class="navbar-search-2">
-				<a href="#" class="" id="search-toggle">
+				<button class="" id="search-toggle">
 					<i class="fas fa-search fa-fw"></i>
-				</a>
+				</button>
 				<div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in">
 
 					<form action="cari.php">

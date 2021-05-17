@@ -1,8 +1,8 @@
 <?php
 session_start();
-// $koneksi = new mysqli("localhost", "ifcfooud_hakim", "[q-4~tM47DBT","ifcfooud_asol");
+$koneksi = new mysqli("localhost", "ifcfooud_hakim", "[q-4~tM47DBT","db_foodcourt");
 
-$koneksi = new mysqli("localhost", "root", "", "db_projek1_new");
+// $koneksi = new mysqli("localhost", "root", "", "db_projek1_new");
 
 date_default_timezone_set('Asia/Jakarta');
 $status_pembelian = ['Pending', 'Sedang Dijalan', 'Sudah Sampai','Sudah Diterima'];

@@ -3,7 +3,8 @@ include "../function/bootstrap.php";
 include "layout/head.php";
 include "layout/nav.php";
 include "layout/side.php";
-include "layout/profil.php";
+$id_users = $_SESSION['user']['id_user'];
+$users = $koneksi->query("SELECT * FROM tb_users WHERE id_user='$id_users'")->fetch_assoc();
 if (!isset($_SESSION['user'])) {
 	echo "<script>alert('Silahkan login dulu');</script>";
 	echo "<script>location='/login.php';</script>";

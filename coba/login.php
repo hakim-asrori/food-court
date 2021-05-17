@@ -88,7 +88,7 @@ if (isset($_POST['login'])) {
 					</div>
 				</form>
 				<div class="small text-center">
-					<a href="<?= base_url('registrasi.php'); ?>">Jika belum punya akun, silahkan registrasi terlebih dahulu</a>
+					<a href="./registrasi.php">Jika belum punya akun, silahkan registrasi terlebih dahulu</a>
 				</div>
 			</div>
 		</div>

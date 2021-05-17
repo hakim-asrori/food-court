@@ -25,7 +25,7 @@ if (isset($_POST['register'])) {
         $password = password_hash($password1, PASSWORD_ARGON2I);
         $koneksi->query("INSERT INTO tb_users (email, password, id_role) VALUES('$email', '$password', 2)");
         echo '<script>alert("Your account has been created")</script>';
-        echo '<script>location="'.base_url("login.php").'"</script>';
+        echo '<script>location="login.php"</script>';
       }
 
     }
@@ -80,7 +80,7 @@ if (isset($_POST['register'])) {
           </div>
         </form>
         <div class="small text-center">
-          <a href="<?= base_url('login.php'); ?>">Jika sudah punya akun, silahkan login</a>
+          <a href="./login.php">Jika sudah punya akun, silahkan login</a>
         </div>
       </div>
     </div>

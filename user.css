@@ -186,13 +186,13 @@ nav.navbar .navbar-menu ul {
 		left: -230px;
 	}
 
-	.wrapper ._sidebar.show li span {
-		display: inline;
-	}
-
 	.wrapper ._sidebar.show {
 		left: 0;
-		width: 230px;
+		width: 90%;
+	}
+	
+	.wrapper ._sidebar.show li span {
+		display: inline;
 	}
 
 	.wrapper .content {

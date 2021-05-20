@@ -1,9 +1,5 @@
 <?php
-include "./function/bootstrap.php";
-include "layout/head.php";
-include "layout/nav.php";
-include "layout/profil.php";
-
+include "../function/bootstrap.php";
 if (!isset($_GET['status']) == 4) {
 	include "assets/error/404-2.php"; die;
 } elseif (empty($_GET['status'])) {
@@ -12,13 +8,18 @@ if (!isset($_GET['status']) == 4) {
 	include "assets/error/404-2.php"; die;
 }
 
+
 if ($users['id_user'] != $_SESSION['user']['id_user']) {
 	include "assets/error/404-2.php"; die;
 }
 
+include "layout/head.php";
+include "layout/nav.php";
+include "layout/side.php";
+include "layout/profil.php";
 if (!isset($_SESSION['user'])) {
 	echo "<script>alert('Silahkan login dulu');</script>";
-	echo "<script>location='/login.php';</script>";
+	echo "<script>location='./login.php';</script>";
 }
 
 $pembelian = $koneksi->query("SELECT tb_produk.id_produk, tb_produk.nama FROM tb_pembelian JOIN tb_produk ON tb_pembelian.id_produk = tb_produk.id_produk WHERE id_checkout = ".anti_inject($_GET['checkout'])."");
@@ -44,7 +45,7 @@ if (isset($_POST['kirim'])) {
 }
 
 ?>
-<input type="hidden" id="uri" value="<?= uri_segment(1) ?>">
+<input type="hidden" id="uri" value="<?= $uri ?>">
 <h3>Komplain</h3>
 
 <div class="card">

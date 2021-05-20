@@ -1,5 +1,5 @@
 <?php 
-include "./function/bootstrap.php";
+include "function/bootstrap.php";
 if (isset($_GET['page'])) {
 	if (isset($_GET['id'])) {
 		$id_produk = $_GET['id'];
@@ -15,7 +15,7 @@ if (isset($_GET['page'])) {
 					$_SESSION['keranjang'][$produk['id_produk']] = 1;
 				}
 				echo "<script>alert('Produk telah masuk ke keranjang belanja');</script>";
-				echo "<script>location='keranjang.php';</script>";
+				echo "<script>location='./keranjang.php';</script>";
 			} else {
 				include "./assets/error/404-2.php";
 			}
@@ -44,7 +44,7 @@ if (isset($_GET['page'])) {
 			unset($_SESSION["keranjang"][$produk['id_produk']]);
 
 			echo "<script>alert('Produk dihapus dari keranjang');</script>";
-			echo "<script>location='keranjang.php';</script>";
+			echo "<script>location='./keranjang.php';</script>";
 			break;
 
 			default:

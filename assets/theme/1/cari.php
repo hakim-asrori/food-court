@@ -1,13 +1,12 @@
 <?php
-include "../function/bootstrap.php";
+include "./function/bootstrap.php";
 include "layout/head.php";
 include "layout/nav.php";
-include "layout/side.php";
 
 $search = anti_inject($_GET['search']);
 $cari = $koneksi->query("SELECT * FROM tb_produk WHERE nama LIKE '%$search%'");
 ?>
-<input type="hidden" id="uri" value="<?= $uri ?>">
+<input type="hidden" id="uri" value="<?= uri_segment(1) ?>">
 
 <h3 class="h4 mb-4">Hasil Pencarian : <?= $search ?></h3>
 

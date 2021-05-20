@@ -1,11 +1,12 @@
 <?php
-include "./function/bootstrap.php";
+include "../function/bootstrap.php";
 include "layout/head.php";
 include "layout/nav.php";
+include "layout/side.php";
 include "layout/profil.php";
 if (!isset($_SESSION['user'])) {
 	echo "<script>alert('Silahkan login dulu');</script>";
-	echo "<script>location='/login.php';</script>";
+	echo "<script>location='./login.php';</script>";
 }
 if (isset($_POST['sampai'])) {
 	$koneksi->query("UPDATE tb_checkout SET status = 4 WHERE id_checkout = '$_POST[checkout]'");
@@ -13,7 +14,7 @@ if (isset($_POST['sampai'])) {
 	echo "<script>location='./riwayat-belanja.php';</script>";
 }
 ?>
-<input type="hidden" id="uri" value="<?= uri_segment(1) ?>">
+<input type="hidden" id="uri" value="<?= $uri ?>">
 <h3>Riwayat Belanja</h3>
 <div class="card">
 	<div class="card-body">
@@ -73,7 +74,7 @@ if (isset($_POST['sampai'])) {
 									</form>
 								<?php endif ?>
 								<?php if ($a['status'] == 4): ?>
-									<a href="/komplain.php?status=4&checkout=<?= $a['id_checkout'] ?>" class="btn btn-danger">Komplain</a>
+									<a href="./komplain.php?status=4&checkout=<?= $a['id_checkout'] ?>" class="btn btn-danger">Komplain</a>
 								<?php endif ?>
 							</td>
 						</tr>

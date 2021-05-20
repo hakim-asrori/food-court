@@ -2,6 +2,7 @@
 include "function/bootstrap.php";
 include "layout/head.php"; 
 include "layout/nav.php"; 
+include "layout/side.php"; 
 
 if (isset($_POST['register'])) {
   $email = anti_inject($_POST['email']);
@@ -24,7 +25,7 @@ if (isset($_POST['register'])) {
         $password = password_hash($password1, PASSWORD_ARGON2I);
         $koneksi->query("INSERT INTO tb_users (email, password, id_role) VALUES('$email', '$password', 2)");
         echo '<script>alert("Your account has been created")</script>';
-        echo '<script>location="'.base_url("login.php").'"</script>';
+        echo '<script>location="login.php"</script>';
       }
 
     }
@@ -40,8 +41,8 @@ if (isset($_POST['register'])) {
     font-family: 'PT Mono', 'Nunito', monospace;
   }
 </style>
-<input type="hidden" id="uri" value="<?= uri_segment(1) ?>">
-<div class="row justify-content-center align-items-center pt-5">
+<input type="hidden" id="uri" value="<?= $uri ?>">
+<div class="row justify-content-center align-items-center mt-5">
 
   <div class="col-lg-7">
     <div class="card p-3 shadow-sm">
@@ -79,7 +80,7 @@ if (isset($_POST['register'])) {
           </div>
         </form>
         <div class="small text-center">
-          <a href="<?= base_url('login.php'); ?>">Jika sudah punya akun, silahkan login</a>
+          <a href="./login.php">Jika sudah punya akun, silahkan login</a>
         </div>
       </div>
     </div>

@@ -1,15 +1,13 @@
 <?php
-include "./function/bootstrap.php";
+include "function/bootstrap.php";
 include "layout/head.php";
 include "layout/nav.php";
-
+include "layout/side.php";
 $id_users = $_SESSION['user']['id_user'];
 $users = $koneksi->query("SELECT * FROM tb_users WHERE id_user='$id_users'")->fetch_assoc();
-
-// include "layout/profil.php";
 if (!isset($_SESSION['user'])) {
 	echo "<script>alert('Silahkan login dulu');</script>";
-	echo "<script>location='/login.php';</script>";
+	echo "<script>location='./login.php';</script>";
 }
 
 if (isset($_POST['ubah_profil'])) {
@@ -34,14 +32,14 @@ if (isset($_POST['ubah_profil'])) {
 				$error_ext = "Ekstensi terlarang";
 			} else {
 				$foto = sha1(rand() . "_" . $filename);
-				move_uploaded_file($_FILES['foto']['tmp_name'], "./assets/images/users/".$foto);
-				unlink("./assets/images/users/".$users['foto']);
+				move_uploaded_file($_FILES['foto']['tmp_name'], "assets/images/users/".$foto);
+				unlink("assets/images/users/".$users['foto']);
 				$koneksi->query("UPDATE tb_users SET nama = '$nama', telepon = '$telepon', alamat = '$alamat', foto = '$foto' WHERE email = '$email'");
 
 			}
 		}
 		echo '<script>alert("Akun berhasil diubah")</script>';
-		echo '<script>location="/profil.php"</script>';
+		echo '<script>location="./profil.php"</script>';
 	} else {
 		echo '<script>alert("Wrong password!")</script>';
 	}
@@ -59,14 +57,14 @@ if (isset($_POST['ubah_profil'])) {
 			$password = password_hash($baru1, PASSWORD_ARGON2I);
 			$koneksi->query("UPDATE tb_users SET password = '$password' WHERE id_user = '$users[id_user]'");
 			echo '<script>alert("Password berhasil diubah")</script>';
-			echo '<script>location="/profil.php"</script>';
+			echo '<script>location="./profil.php"</script>';
 		}
 	} else {
 		echo '<script>alert("Wrong password!")</script>';
 	}
 }
 ?>
-<input type="hidden" id="uri" value="<?= uri_segment(1) ?>">
+<input type="hidden" id="uri" value="<?= $uri ?>">
 <h3>Profil Saya</h3>
 <div class="card mb-3">
 	<div class="card-body">
@@ -95,7 +93,7 @@ if (isset($_POST['ubah_profil'])) {
 			</div>
 			<?php if ($users['foto'] != null): ?>
 				<div class="form-group">
-					<img src="/assets/images/users/<?= $users['foto'] ?>" height="200">
+					<img src="/assets/images/users/<?= $users['foto'] ?>" height="200" width="200">
 				</div>
 			<?php endif ?>
 			<div class="form-group">

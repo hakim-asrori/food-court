@@ -1,8 +1,7 @@
 <?php
-include "../function/bootstrap.php"; 
+include "function/bootstrap.php"; 
 include "layout/head.php";
 include "layout/nav.php";
-include "layout/side.php";
 
 if (isset($_POST['login'])) {
 	$account = anti_inject($_POST['account']);
@@ -27,13 +26,13 @@ if (isset($_POST['login'])) {
 				} else {
 					$_SESSION['user'] = $ambil;
 					if (empty($ambil['nama'])) {
-						echo '<script>location="./profil.php"</script>';
+						echo '<script>location="'.base_url("profil.php").'"</script>';
 					} elseif (empty($_SESSION['keranjang'])) {
-						echo '<script>location="./"</script>';
+						echo '<script>location="'.base_url("").'"</script>';
 					} elseif (isset($_SESSION['keranjang']) OR !empty($_SESSION['keranjang'])) {
-						echo '<script>location="./checkout.php"</script>';
+						echo '<script>location="'.base_url("checkout.php").'"</script>';
 					} else {
-						echo '<script>location="./riwayat.php"</script>';
+						echo '<script>location="'.base_url("riwayat.php").'"</script>';
 					}
 				}
 			} else {
@@ -54,8 +53,8 @@ if (isset($_POST['login'])) {
 		font-family: 'PT Mono', 'Nunito', monospace;
 	}
 </style>
-<input type="hidden" id="uri" value="<?= $uri ?>">
-<div class="row justify-content-center align-items-center mt-5">
+<input type="hidden" id="uri" value="<?= uri_segment(1) ?>">
+<div class="row justify-content-center align-items-center">
 
 	<div class="col-lg-6">
 		<div class="card p-3 shadow-sm">
@@ -88,7 +87,7 @@ if (isset($_POST['login'])) {
 					</div>
 				</form>
 				<div class="small text-center">
-					<a href="./registrasi.php">Jika belum punya akun, silahkan registrasi terlebih dahulu</a>
+					<a href="<?= base_url('registrasi.php'); ?>">Jika belum punya akun, silahkan registrasi terlebih dahulu</a>
 				</div>
 			</div>
 		</div>

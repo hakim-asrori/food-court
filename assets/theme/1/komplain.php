@@ -1,8 +1,7 @@
 <?php
-include "../function/bootstrap.php";
+include "./function/bootstrap.php";
 include "layout/head.php";
 include "layout/nav.php";
-include "layout/side.php";
 include "layout/profil.php";
 
 if (!isset($_GET['status']) == 4) {
@@ -45,7 +44,7 @@ if (isset($_POST['kirim'])) {
 }
 
 ?>
-<input type="hidden" id="uri" value="<?= $uri ?>">
+<input type="hidden" id="uri" value="<?= uri_segment(1) ?>">
 <h3>Komplain</h3>
 
 <div class="card">

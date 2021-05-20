@@ -2,9 +2,10 @@
 include "function/bootstrap.php";
 include "layout/head.php";
 include "layout/nav.php";
+include "layout/side.php";
 if (!isset($_SESSION['user'])) {
   echo "<script>alert('Silahkan login dulu');</script>";
-  echo "<script>location='/login.php';</script>";
+  echo "<script>location='./login.php';</script>";
 } elseif (isset($_SESSION['user'])) {
   include "layout/profil.php";
 }
@@ -41,7 +42,7 @@ if (isset($_POST['checkout'])) {
   unset($_SESSION['keranjang']);
 }
 ?>
-<input type="hidden" id="uri" value="<?= uri_segment(1) ?>">
+<input type="hidden" id="uri" value="<?= $uri ?>">
 <h3>Checkout</h3>
 <div class="alert alert-info">
   Silahkan Checkout

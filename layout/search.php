@@ -1,6 +1,6 @@
 <?php
 
-include "../function/bootstrap.php";
+include "../../function/bootstrap.php";
 
 if (isset($_GET['term'])) {
 	$search = $_GET['term'];

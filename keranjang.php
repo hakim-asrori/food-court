@@ -2,13 +2,14 @@
 include "function/bootstrap.php";
 include "layout/head.php";
 include "layout/nav.php";
+include "layout/side.php";
 
 if (empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"])) {
   echo "<script>alert('Keranjang kosong, silahkan belanja terlebih dahulu');</script>";
-  echo "<script>location='/';</script>";
+  echo "<script>location='./';</script>";
 }
 ?>
-<input type="hidden" id="uri" value="<?= uri_segment(1) ?>">
+<input type="hidden" id="uri" value="<?= $uri ?>">
 
 <div class="alert alert-danger">
   Data keranjang akan hilang jika Browser anda di tutup.
@@ -51,7 +52,7 @@ if (empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"])) {
               </td>
               <td><?= harga($totalHarga) ?></td>
               <td>
-                <form method="post" action="/beli.php?page=hapus&id=<?= $produk['id_produk'] ?>" class="d-inline">
+                <form method="post" action="./beli.php?page=hapus&id=<?= $produk['id_produk'] ?>" class="d-inline">
                   <button class="btn btn-danger">Hapus</button>
                 </form>
               </td>
@@ -60,8 +61,8 @@ if (empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"])) {
         </tbody>
       </table>
     </div>
-    <button type="button" class="btn btn-secondary" onclick="location='/'">Lanjutkan Belanja</button>
-    <button type="button" class="btn btn-success"  onclick="location='/checkout.php'">Checkout</button>
+    <button type="button" class="btn btn-secondary" onclick="location='./'">Lanjutkan Belanja</button>
+    <button type="button" class="btn btn-success"  onclick="location='./checkout.php'">Checkout</button>
   </div>
 </div>
 

@@ -1,7 +1,8 @@
 <?php
-include "./function/bootstrap.php";
+include "../function/bootstrap.php";
 include "layout/head.php";
 include "layout/nav.php";
+include "layout/side.php";
 
 if (isset($_GET['search'])) {
 	$slug = $_GET['search'];
@@ -15,7 +16,7 @@ if (isset($_GET['search'])) {
 		padding: .5rem;
 	}
 </style>
-<input type="hidden" id="uri" value="<?= uri_segment(1) ?>">
+<input type="hidden" id="uri" value="<?= $uri ?>">
 <div class="card mb-3">
 	<div class="card-body">
 		<div class="row">
@@ -31,7 +32,7 @@ if (isset($_GET['search'])) {
 					<p><?= $ambil['deskripsi'] ?></p>
 				</div>
 				<div class="mb-3">
-					<form method="post" action="/beli.php?page=tambah&id=<?= $ambil['id_produk'] ?>" class="d-inline">
+					<form method="post" action="./beli.php?page=tambah&id=<?= $ambil['id_produk'] ?>" class="d-inline">
 						<button class="btn btn-success">Beli</button>
 					</form>
 				</div>
@@ -60,12 +61,14 @@ if (isset($_GET['search'])) {
 					</div>
 				</div>
 				<div class="card-footer text-center">
-					<button class="btn btn-success">Beli</button>
-					<a href="<?= base_url('detail.php?search='.$p['slug']); ?>" class="btn btn-primary">Detail</a>
+					<form method="post" action="./beli.php?page=tambah&id=<?= $p['id_produk'] ?>" class="d-inline">
+						<button class="btn btn-success">Beli</button>
+					</form>
+					<a href="<?= 'detail.php?search='.$p['slug']; ?>" class="btn btn-primary">Detail</a>
 				</div>
 			</div>
 		</div>
 	<?php } ?>
 </div>
-<a href="<?= base_url('./'); ?>" class="btn btn-primary mb-5">View More</a>
+<a href="./" class="btn btn-primary mb-5">View More</a>
 <?php include "layout/foot.php"; ?>

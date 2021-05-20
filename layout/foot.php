@@ -13,7 +13,7 @@
 <script src="/assets/js/sb-admin-2.js"></script>
 <script src="/assets/vendor/jquery-ui/jquery-ui.min.js"></script>
 <script src="user.js"></script>
-<!-- <script>
+<script>
 	$(function() {
 		$('.custom-file-input').on('change', function() {
 			let fileName = $(this).val().split('\\').pop();
@@ -24,6 +24,6 @@
 			source: 'search.php'
 		});
 	});
-</script> -->
+</script>
 </body>
 </html>

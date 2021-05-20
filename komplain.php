@@ -1,5 +1,5 @@
 <?php
-include "../function/bootstrap.php";
+include "function/bootstrap.php";
 if (!isset($_GET['status']) == 4) {
 	include "assets/error/404-2.php"; die;
 } elseif (empty($_GET['status'])) {

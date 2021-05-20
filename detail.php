@@ -1,5 +1,5 @@
 <?php
-include "../function/bootstrap.php";
+include "function/bootstrap.php";
 include "layout/head.php";
 include "layout/nav.php";
 include "layout/side.php";

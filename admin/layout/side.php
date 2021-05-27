@@ -51,6 +51,15 @@
         </li>
         <hr class="sidebar-divider my-0">
 
+        <!-- Menu Pesan -->
+        <li class="nav-item">
+            <a class="nav-link" href="<?= base_url('admin/pesan.php'); ?>">
+                <i class="fas fa-fw fa-envelope"></i>
+                <span>Pesan</span>
+            </a>
+        </li>
+        <hr class="sidebar-divider my-0">
+
         <!-- Menu Logout -->
         <li class="nav-item">
             <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">

@@ -4,6 +4,7 @@ include "layout/head.php";
 include "layout/nav.php";
 include "layout/side.php";
 include "layout/profil.php";
+
 if (!isset($_SESSION['user'])) {
 	echo "<script>alert('Silahkan login dulu');</script>";
 	echo "<script>location='./login.php';</script>";
@@ -11,7 +12,7 @@ if (!isset($_SESSION['user'])) {
 if (isset($_POST['sampai'])) {
 	$koneksi->query("UPDATE tb_checkout SET status = 4 WHERE id_checkout = '$_POST[checkout]'");
 	echo "<script>alert('Pesan di terima.');</script>";
-	echo "<script>location='./riwayat-belanja.php';</script>";
+	echo "<script>location='./riwayat.php';</script>";
 }
 ?>
 <input type="hidden" id="uri" value="<?= $uri ?>">
@@ -74,15 +75,21 @@ if (isset($_POST['sampai'])) {
 									</form>
 								<?php endif ?>
 								<?php if ($a['status'] == 4): ?>
-									<a href="./komplain.php?status=4&checkout=<?= $a['id_checkout'] ?>" class="btn btn-danger">Komplain</a>
-								<?php endif ?>
-							</td>
-						</tr>
-					<?php } ?>
-				</tbody>
-			</table>
+									<?php
+									$komplain = $koneksi->query("SELECT * FROM tb_komplain WHERE id_checkout = '$a[id_checkout]'")->num_rows;
+									?>
+									<?php if ($komplain < 1): ?>
+										<a href="./komplain.php?status=4&checkout=<?= $a['id_checkout'] ?>" class="btn btn-danger" id="count">Komplain</a>
+										<?php else: ?>
+											<a href="./detail_komplain.php?checkout=<?= $a['id_checkout'] ?>" class="btn btn-info" id="count">Detail Komplain</a>
+										<?php endif ?>
+									<?php endif ?>
+								</td>
+							</tr>
+						<?php } ?>
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
-</div>
-
-<?php include "layout/foot.php"; ?>
+	<?php include "layout/foot.php"; ?>

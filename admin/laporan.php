@@ -6,7 +6,7 @@ include "layout/head.php";
 include "layout/side.php";
 include "layout/nav.php";
 ?>
-<div class="container-fluid">
+<div class="container-fluid mb-5">
 	<?php
 	if (isset($_GET['page'])) {
 		switch ($_GET['page']) {

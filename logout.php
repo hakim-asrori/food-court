@@ -1,5 +1,5 @@
 <?php
 session_start();
-session_destroy();
-header("location: ./");
+unset($_SESSION['user']);
+echo "<script>location='/';</script>";
 ?>

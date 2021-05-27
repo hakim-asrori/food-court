@@ -8,11 +8,6 @@ if (!isset($_GET['status']) == 4) {
 	include "assets/error/404-2.php"; die;
 }
 
-
-if ($users['id_user'] != $_SESSION['user']['id_user']) {
-	include "assets/error/404-2.php"; die;
-}
-
 include "layout/head.php";
 include "layout/nav.php";
 include "layout/side.php";
@@ -21,27 +16,46 @@ if (!isset($_SESSION['user'])) {
 	echo "<script>alert('Silahkan login dulu');</script>";
 	echo "<script>location='./login.php';</script>";
 }
+if ($users['id_user'] != $_SESSION['user']['id_user']) {
+	include "assets/error/404-2.php"; die;
+}
 
-$pembelian = $koneksi->query("SELECT tb_produk.id_produk, tb_produk.nama FROM tb_pembelian JOIN tb_produk ON tb_pembelian.id_produk = tb_produk.id_produk WHERE id_checkout = ".anti_inject($_GET['checkout'])."");
+$id_checkout = anti_inject($_GET['checkout']);
+
+$pembelian = $koneksi->query("SELECT tb_produk.id_produk, tb_produk.nama FROM tb_pembelian JOIN tb_produk ON tb_pembelian.id_produk = tb_produk.id_produk WHERE id_checkout = '$id_checkout'");
 
 $isMobile = is_numeric(strpos(strtolower($_SERVER['HTTP_USER_AGENT']), "mobile"));
 
 if (isset($_POST['kirim'])) {
-	echo "<pre>";
-	print_r($_POST['nama']);
-	echo "</pre>";
-	echo "<pre>";
-	print_r($_POST['pesan']);
-	echo "</pre>";
-	echo "<pre>";
-	print_r($_FILES['foto']);
-	echo "</pre>";
-	foreach ($_POST['produk'] as $p) {
-		echo "<pre>";
-		print_r(unserialize(serialize($p)));
-		echo "</pre>";
+	$id_user = $users['id_user'];
+	$pesan = $_POST['pesan'];
+
+	$filename = $_FILES['foto']['name'];
+	$ekstensi = array('png', 'jpg', 'jpeg');
+	$ext = pathinfo($filename, PATHINFO_EXTENSION);
+
+	if (empty($filename)) {
+		echo '<script>alert("Foto Struk tidak boleh kosong")</script>';
+		echo '<script>location.reload()</script>';
+	} else {
+		if (!in_array($ext, $ekstensi)) {
+			echo '<script>alert("Ekstensi terlarang")</script>';
+		} else {
+			$foto = sha1(rand() . "_" . $filename);
+			move_uploaded_file($_FILES['foto']['tmp_name'], "./assets/images/struk/".$foto);
+
+			$koneksi->query("INSERT INTO tb_komplain (id_user, id_checkout, tgl_komplain, foto, pesan, status) VALUES ('$id_user', '$id_checkout', current_timestamp, '$foto', '$pesan', 1)");
+
+			$id_komplain = $koneksi->insert_id;
+
+			foreach ($_POST['produk'] as $p) {
+				$koneksi->query("INSERT INTO tb_komplain_produk VALUES('', '$id_komplain', '$p')");
+			}
+
+			echo "<script>alert('Komplain Sukses');</script>";
+			echo "<script>location='./riwayat.php';</script>";
+		}
 	}
-	die;
 }
 
 ?>
@@ -70,10 +84,10 @@ if (isset($_POST['kirim'])) {
 			</div>
 
 			<div class="form-group">
-				<label for="foto">Foto bukti pembayaran</label>
+				<label for="foto">Foto Struk</label>
 				<div class="input-group">
 					<div class="custom-file">
-						<input type="file" class="custom-file-input" id="foto" name="foto">
+						<input type="file" class="custom-file-input" id="foto" name="foto" required>
 						<label class="custom-file-label" for="foto">Choose file</label>
 					</div>
 				</div>
@@ -81,7 +95,7 @@ if (isset($_POST['kirim'])) {
 
 			<div class="form-group">
 				<label for="pesan">Pesan</label>
-				<textarea class="form-control" name="pesan" id="pesan" rows="10"></textarea>
+				<textarea class="form-control" name="pesan" id="pesan" rows="10" required></textarea>
 			</div>
 
 			<div class="form-group">

@@ -26,11 +26,11 @@ $ambil = $koneksi->query("SELECT * FROM tb_checkout");
 				<th><?= $i++ ?></th>
 				<td><?= $p['nama_pemesan'] ?></td>
 				<td><?= date("d", strtotime($p['tgl_beli']))." ".bulan(date("m", strtotime($p['tgl_beli'])))." ".date("Y", strtotime($p['tgl_beli'])); ?></td>
-				<td><?= $status['status'] ?></td>
+				<td><span class="text-uppercase"><?= $status['status'] ?></span></td>
 				<td>
 					<button onclick="location='./pembelian.php?page=detail&search=<?= $p['id_checkout'] ?>'" class="btn btn-info">Detail</button>
-					<?php if ($p['status'] != 0): ?>
-						<button class="btn btn-success">Pembayaran</button>
+					<?php if ($p['status'] != 2): ?>
+						<button class="btn btn-success" onclick="antar(<?= $p['id_checkout'] ?>)">Diantar?</button>
 					<?php endif ?>
 				</td>
 			</tr>
@@ -38,3 +38,33 @@ $ambil = $koneksi->query("SELECT * FROM tb_checkout");
 	</tbody>
 </table>
 </div>
+
+<script>
+	function antar(id_checkout) {
+
+		if(id_checkout != ''){
+
+			let data = {id_checkout: id_checkout};
+			let xhr = new XMLHttpRequest();
+			xhr.open("POST", "pembelian.php?page=antar", true);
+
+			xhr.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+
+					let response = this.responseText;
+					console.log(response);
+					if(response == 1){
+						alert("Masuk data list antar.");
+						location = 'pembelian.php';
+					} else {
+						alert("Gagal diantar.");
+					}
+				}
+			};
+
+			xhr.setRequestHeader("Content-Type", "application/json");
+
+			xhr.send(JSON.stringify(data));
+		}
+	}
+</script>

@@ -17,6 +17,20 @@
     <link rel="stylesheet" href="<?= '/assets/css/bootstrap.min.css' ?>">
     <link rel="stylesheet" href="<?= '/assets/css/admin.css' ?>">
 
+    <style>
+        .badge {
+            outline: none;
+            border: none;
+        }
+    </style>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="<?php echo "/assets/vendor/jquery/jquery.min.js" ?>"></script>
+    <script src="<?php echo "/assets/vendor/bootstrap/js/bootstrap.bundle.min.js" ?>"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="<?php echo "/assets/vendor/jquery-easing/jquery.easing.min.js" ?>"></script>
+
 </head>
 
 <body id="page-top">

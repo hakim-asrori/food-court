@@ -7,7 +7,7 @@ $ambil = $koneksi->query("SELECT * FROM tb_produk");
 <a href="<?= base_url('admin/produk.php?page=tambah'); ?>" class="btn btn-primary m-b-10 btn-icon-split mb-4"><span class="icon text-white-50"><i class="fas fa-plus"></i></span><span class="text">Produk</span></a>
 
 <div class="table-responsive">
-	<table class="table table-bordered table-striped table-hover">
+	<table class="table table-bordered table-hover">
 		<thead>
 			<tr>
 				<th scope="row">No.</th>

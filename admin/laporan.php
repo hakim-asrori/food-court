@@ -10,16 +10,8 @@ include "layout/nav.php";
 	<?php
 	if (isset($_GET['page'])) {
 		switch ($_GET['page']) {
-			case "tambah":
-			include "page/laporan/tambah.php";
-			break;
-
-			case "hapus":
-			include "page/laporan/hapus.php";
-			break;
-
-			case "edit":
-			include "page/laporan/edit.php";
+			case "load":
+			include "page/laporan/load.php";
 			break;
 
 			default:

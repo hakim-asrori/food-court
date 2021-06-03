@@ -26,12 +26,9 @@ $ambil = $koneksi->query("SELECT * FROM tb_checkout");
 				<th><?= $i++ ?></th>
 				<td><?= $p['nama_pemesan'] ?></td>
 				<td><?= date("d", strtotime($p['tgl_beli']))." ".bulan(date("m", strtotime($p['tgl_beli'])))." ".date("Y", strtotime($p['tgl_beli'])); ?></td>
-				<td><span class="text-uppercase"><?= $status['status'] ?></span></td>
+				<td><span class="text-uppercase badge badge-<?= $p['status'] == 1 ? 'warning' : 'success' ?>"><?= $status['status'] ?></span></td>
 				<td>
 					<button onclick="location='./pembelian.php?page=detail&search=<?= $p['id_checkout'] ?>'" class="btn btn-info">Detail</button>
-					<?php if ($p['status'] != 2): ?>
-						<button class="btn btn-success" onclick="antar(<?= $p['id_checkout'] ?>)">Diantar?</button>
-					<?php endif ?>
 				</td>
 			</tr>
 		<?php endwhile ?>

@@ -1,6 +1,6 @@
 <?php
 include "function/bootstrap.php";
-if (!isset($_GET['status']) == 4) {
+if (!isset($_GET['status']) == 2) {
 	include "assets/error/404-2.php"; die;
 } elseif (empty($_GET['status'])) {
 	include "assets/error/404-2.php"; die;
@@ -52,7 +52,7 @@ if (isset($_POST['kirim'])) {
 				$koneksi->query("INSERT INTO tb_komplain_produk VALUES('', '$id_komplain', '$p')");
 			}
 
-			echo "<script>alert('Komplain Sukses');</script>";
+			echo "<script>alert('Saran berhasil dikirim');</script>";
 			echo "<script>location='./riwayat.php';</script>";
 		}
 	}
@@ -60,7 +60,7 @@ if (isset($_POST['kirim'])) {
 
 ?>
 <input type="hidden" id="uri" value="<?= $uri ?>">
-<h3>Komplain</h3>
+<h3>Saran</h3>
 
 <div class="card">
 	<div class="card-body">

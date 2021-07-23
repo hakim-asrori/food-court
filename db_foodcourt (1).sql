@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 03, 2021 at 11:06 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 7.3.27
+-- Waktu pembuatan: 23 Jul 2021 pada 22.20
+-- Versi server: 10.4.17-MariaDB
+-- Versi PHP: 7.3.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_checkout`
+-- Struktur dari tabel `tb_checkout`
 --
 
 CREATE TABLE `tb_checkout` (
@@ -39,7 +39,7 @@ CREATE TABLE `tb_checkout` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_checkout`
+-- Dumping data untuk tabel `tb_checkout`
 --
 
 INSERT INTO `tb_checkout` (`id_checkout`, `id_user`, `nama_pemesan`, `telepon_pemesan`, `alamat_pemesan`, `total_belanja`, `tgl_beli`, `status`) VALUES
@@ -56,7 +56,7 @@ INSERT INTO `tb_checkout` (`id_checkout`, `id_user`, `nama_pemesan`, `telepon_pe
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_komplain`
+-- Struktur dari tabel `tb_komplain`
 --
 
 CREATE TABLE `tb_komplain` (
@@ -70,7 +70,7 @@ CREATE TABLE `tb_komplain` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_komplain`
+-- Dumping data untuk tabel `tb_komplain`
 --
 
 INSERT INTO `tb_komplain` (`id_komplain`, `id_user`, `id_checkout`, `tgl_komplain`, `foto`, `pesan`, `status`) VALUES
@@ -80,7 +80,7 @@ INSERT INTO `tb_komplain` (`id_komplain`, `id_user`, `id_checkout`, `tgl_komplai
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_komplain_produk`
+-- Struktur dari tabel `tb_komplain_produk`
 --
 
 CREATE TABLE `tb_komplain_produk` (
@@ -90,7 +90,7 @@ CREATE TABLE `tb_komplain_produk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_komplain_produk`
+-- Dumping data untuk tabel `tb_komplain_produk`
 --
 
 INSERT INTO `tb_komplain_produk` (`id_komplain_produk`, `id_komplain`, `id_produk`) VALUES
@@ -101,7 +101,7 @@ INSERT INTO `tb_komplain_produk` (`id_komplain_produk`, `id_komplain`, `id_produ
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_pembayaran`
+-- Struktur dari tabel `tb_pembayaran`
 --
 
 CREATE TABLE `tb_pembayaran` (
@@ -116,7 +116,7 @@ CREATE TABLE `tb_pembayaran` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_pembelian`
+-- Struktur dari tabel `tb_pembelian`
 --
 
 CREATE TABLE `tb_pembelian` (
@@ -127,7 +127,7 @@ CREATE TABLE `tb_pembelian` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_pembelian`
+-- Dumping data untuk tabel `tb_pembelian`
 --
 
 INSERT INTO `tb_pembelian` (`id_pembelian`, `id_checkout`, `id_produk`, `jumlah`) VALUES
@@ -149,7 +149,7 @@ INSERT INTO `tb_pembelian` (`id_pembelian`, `id_checkout`, `id_produk`, `jumlah`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_produk`
+-- Struktur dari tabel `tb_produk`
 --
 
 CREATE TABLE `tb_produk` (
@@ -163,7 +163,7 @@ CREATE TABLE `tb_produk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_produk`
+-- Dumping data untuk tabel `tb_produk`
 --
 
 INSERT INTO `tb_produk` (`id_produk`, `nama`, `slug`, `harga`, `rating`, `deskripsi`, `foto`) VALUES
@@ -172,7 +172,7 @@ INSERT INTO `tb_produk` (`id_produk`, `nama`, `slug`, `harga`, `rating`, `deskri
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_role`
+-- Struktur dari tabel `tb_role`
 --
 
 CREATE TABLE `tb_role` (
@@ -181,7 +181,7 @@ CREATE TABLE `tb_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_role`
+-- Dumping data untuk tabel `tb_role`
 --
 
 INSERT INTO `tb_role` (`id_role`, `role`) VALUES
@@ -192,7 +192,7 @@ INSERT INTO `tb_role` (`id_role`, `role`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_status_produk`
+-- Struktur dari tabel `tb_status_produk`
 --
 
 CREATE TABLE `tb_status_produk` (
@@ -201,7 +201,7 @@ CREATE TABLE `tb_status_produk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_status_produk`
+-- Dumping data untuk tabel `tb_status_produk`
 --
 
 INSERT INTO `tb_status_produk` (`id_status`, `status`) VALUES
@@ -212,7 +212,7 @@ INSERT INTO `tb_status_produk` (`id_status`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_users`
+-- Struktur dari tabel `tb_users`
 --
 
 CREATE TABLE `tb_users` (
@@ -227,7 +227,7 @@ CREATE TABLE `tb_users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_users`
+-- Dumping data untuk tabel `tb_users`
 --
 
 INSERT INTO `tb_users` (`id_user`, `nama`, `email`, `password`, `telepon`, `alamat`, `foto`, `id_role`) VALUES
@@ -235,33 +235,35 @@ INSERT INTO `tb_users` (`id_user`, `nama`, `email`, `password`, `telepon`, `alam
 (5, '', 'admin@admin.com', '$argon2i$v=19$m=65536,t=4,p=1$ZS5Kemx3UXEyZ0o1SXdSaw$0hCeTqz5TvT8fh7q+JTfHsO+0+budEAJl/fQo3VyvWU', '0', '', '', 88),
 (6, 'Hakim Asrori', 'a@a.com', '$argon2i$v=19$m=65536,t=4,p=1$R3VIRVRmS1N0bzcuQ3FkSw$JXRgpJELWB83NDfyidbVxma8fEvObtalTCrNZOc2Xxo', '083862169726', 'Jl Raya Pantura Losarang', '74a7b71d121f0e142e7159ab2a0ccad3749f1e61', 1),
 (7, 'C', 'c@c.com', '$argon2i$v=19$m=65536,t=4,p=1$MU50UktmOVB0QlVhNFRsOQ$kPteWOTAR1VMLMBAEKdq8/RCRX1n/xxT3CqFcHxDlg0', '083862169726', 'Jl Raya Pantura Losarang', 'e2d3ea8d2c13561f0dcb619e5e96ae1137c22eae', 2),
-(8, 'asep', 'coba@coba.com', '$argon2i$v=19$m=65536,t=4,p=1$Q2hueWpIUS4yLnlwd3ZYVw$93TsBPl+GfmemTY3gmrOjiGDHu7u52kGSOn3CVOnsUI', '123', 'Jakarta', 'c8ea067896e7d6b0878e3aeb86f80be495d01d0f', 2);
+(8, 'asep', 'coba@coba.com', '$argon2i$v=19$m=65536,t=4,p=1$Q2hueWpIUS4yLnlwd3ZYVw$93TsBPl+GfmemTY3gmrOjiGDHu7u52kGSOn3CVOnsUI', '123', 'Jakarta', 'c8ea067896e7d6b0878e3aeb86f80be495d01d0f', 2),
+(9, '', '&amp;lt;script&amp;gt;alert(&amp;#039;hello&amp;#039;)&amp;lt;/script&amp;gt;', '$argon2i$v=19$m=65536,t=4,p=1$VXAuUFMybjZyY1lOSmtZYQ$apc4gkkXbF2AbrxCFlgiRNJS9W6zaPf4+/SPPkm2dJY', '', '', '', 2),
+(10, '', 'hakim@gmail.com', '$argon2i$v=19$m=65536,t=4,p=1$U2xlci5tQTBvZHFyMVI0Tg$Qvj6xYRSBwjrYzYXS8c4XataJdhiYkUjbtZYeXtd4pA', '', '', '', 2);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `tb_checkout`
+-- Indeks untuk tabel `tb_checkout`
 --
 ALTER TABLE `tb_checkout`
   ADD PRIMARY KEY (`id_checkout`),
   ADD KEY `id_user` (`id_user`);
 
 --
--- Indexes for table `tb_komplain`
+-- Indeks untuk tabel `tb_komplain`
 --
 ALTER TABLE `tb_komplain`
   ADD PRIMARY KEY (`id_komplain`);
 
 --
--- Indexes for table `tb_komplain_produk`
+-- Indeks untuk tabel `tb_komplain_produk`
 --
 ALTER TABLE `tb_komplain_produk`
   ADD PRIMARY KEY (`id_komplain_produk`);
 
 --
--- Indexes for table `tb_pembayaran`
+-- Indeks untuk tabel `tb_pembayaran`
 --
 ALTER TABLE `tb_pembayaran`
   ADD PRIMARY KEY (`id_pembayaran`),
@@ -269,7 +271,7 @@ ALTER TABLE `tb_pembayaran`
   ADD KEY `id_pembelian` (`id_pembelian`);
 
 --
--- Indexes for table `tb_pembelian`
+-- Indeks untuk tabel `tb_pembelian`
 --
 ALTER TABLE `tb_pembelian`
   ADD PRIMARY KEY (`id_pembelian`),
@@ -277,81 +279,81 @@ ALTER TABLE `tb_pembelian`
   ADD KEY `id_produk` (`id_produk`);
 
 --
--- Indexes for table `tb_produk`
+-- Indeks untuk tabel `tb_produk`
 --
 ALTER TABLE `tb_produk`
   ADD PRIMARY KEY (`id_produk`);
 
 --
--- Indexes for table `tb_role`
+-- Indeks untuk tabel `tb_role`
 --
 ALTER TABLE `tb_role`
   ADD PRIMARY KEY (`id_role`);
 
 --
--- Indexes for table `tb_status_produk`
+-- Indeks untuk tabel `tb_status_produk`
 --
 ALTER TABLE `tb_status_produk`
   ADD PRIMARY KEY (`id_status`);
 
 --
--- Indexes for table `tb_users`
+-- Indeks untuk tabel `tb_users`
 --
 ALTER TABLE `tb_users`
   ADD PRIMARY KEY (`id_user`),
   ADD KEY `id_role` (`id_role`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `tb_checkout`
+-- AUTO_INCREMENT untuk tabel `tb_checkout`
 --
 ALTER TABLE `tb_checkout`
   MODIFY `id_checkout` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `tb_komplain`
+-- AUTO_INCREMENT untuk tabel `tb_komplain`
 --
 ALTER TABLE `tb_komplain`
   MODIFY `id_komplain` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `tb_komplain_produk`
+-- AUTO_INCREMENT untuk tabel `tb_komplain_produk`
 --
 ALTER TABLE `tb_komplain_produk`
   MODIFY `id_komplain_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `tb_pembayaran`
+-- AUTO_INCREMENT untuk tabel `tb_pembayaran`
 --
 ALTER TABLE `tb_pembayaran`
   MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tb_pembelian`
+-- AUTO_INCREMENT untuk tabel `tb_pembelian`
 --
 ALTER TABLE `tb_pembelian`
   MODIFY `id_pembelian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `tb_produk`
+-- AUTO_INCREMENT untuk tabel `tb_produk`
 --
 ALTER TABLE `tb_produk`
   MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `tb_status_produk`
+-- AUTO_INCREMENT untuk tabel `tb_status_produk`
 --
 ALTER TABLE `tb_status_produk`
   MODIFY `id_status` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `tb_users`
+-- AUTO_INCREMENT untuk tabel `tb_users`
 --
 ALTER TABLE `tb_users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
